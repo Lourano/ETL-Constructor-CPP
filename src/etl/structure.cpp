@@ -2,7 +2,7 @@
 // Created by Bohdan Zhuravel on 08/04/2023.
 //
 #include <string>
-#include "structure.h"
+#include "../../include/etl/structure.h"
 
 
 std::string Extractor::extract() {

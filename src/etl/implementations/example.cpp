@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "example.h"
+#include "../../../include/etl/implementations/example.h"
 
 std::string ExampleETL::transform(std::string data) {
     std::string transformed_data = "Transformed " + data;
