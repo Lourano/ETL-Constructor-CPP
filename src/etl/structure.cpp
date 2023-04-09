@@ -5,16 +5,6 @@
 
 
 template <typename T>
-T Extractor<T>::extract() {
-    return T();
-}
-
-template <typename T>
-bool Loader<T>::load(T &data) {
-    return false;
-}
-
-template <typename T>
 T ETL<T>::extract() {
     return extractor_ -> extract();
 }
@@ -25,13 +15,12 @@ bool ETL<T>::load(T &data) {
 }
 
 template <typename T>
-T ETL<T>::transform(T &data) {
-    return T();
+void ETL<T>::run() {
+    T data = extract();
+    T transformed = transform(data);
+    bool success = load(data);
+
+    std::cout << "Success: " << success << std::endl;
 }
 
-template <typename T>
-void ETL<T>::run() {
-    T data = extractor_->extract();
-    data = transform(data);
-    loader_->load(data);
-}
+template class ETL<std::string>; // # TODO Completely wrong solution.

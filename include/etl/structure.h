@@ -5,6 +5,7 @@
 #ifndef ETL_CONSTRUCTOR_STRUCTURE_H
 #define ETL_CONSTRUCTOR_STRUCTURE_H
 
+#include <iostream>
 #include <string>
 
 template <typename T>
@@ -12,7 +13,7 @@ class Extractor {
 
 public:
     virtual ~Extractor() {}
-    virtual T extract();
+    virtual T extract() {};
 
 };
 
@@ -21,7 +22,7 @@ class Loader {
 
 public:
     virtual ~Loader() {}
-    virtual bool load(T &data);
+    virtual bool load(T &data) {};
 };
 
 template <typename T>
@@ -31,7 +32,7 @@ public:
     ETL(Extractor<T> *extractor, Loader<T> *loader): extractor_(extractor), loader_(loader) {}
 
     T extract();
-    virtual T transform(T &data);
+    virtual T transform(T &data) {};
     bool load(T &data);
     void run();
 
