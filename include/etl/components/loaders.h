@@ -5,10 +5,11 @@
 #ifndef ETL_CONSTRUCTOR_LOADERS_H
 #define ETL_CONSTRUCTOR_LOADERS_H
 
+#include <string>
 #include "../structure.h"
 
-class SimpleLoader: public Loader {
-    bool load(std::string data);
+class SimpleLoader: public Loader<std::string> {
+    bool load(std::string &data);
 };
 
 

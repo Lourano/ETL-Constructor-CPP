@@ -7,34 +7,37 @@
 
 #include <string>
 
+template <typename T>
 class Extractor {
 
 public:
     virtual ~Extractor() {}
-    virtual std::string extract();
+    virtual T extract();
 
 };
 
+template <typename T>
 class Loader {
 
 public:
     virtual ~Loader() {}
-    virtual bool load(std::string);
+    virtual bool load(T &data);
 };
 
+template <typename T>
 class ETL {
 
 public:
-    ETL(Extractor* extractor, Loader* loader) : extractor_(extractor), loader_(loader) {}
+    ETL(Extractor<T> *extractor, Loader<T> *loader): extractor_(extractor), loader_(loader) {}
 
-    std::string extract();
-    virtual std::string transform(std::string data); // TODO Here std::string have to be changed on self data type
-    bool load(const std::string& data);
+    T extract();
+    virtual T transform(T &data);
+    bool load(T &data);
     void run();
 
 protected:
-    Extractor *extractor_;
-    Loader *loader_;
+    std::shared_ptr<Extractor<T> > extractor_;
+    std::shared_ptr<Loader<T> > loader_;
 };
 
 

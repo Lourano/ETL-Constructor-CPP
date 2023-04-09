@@ -7,7 +7,7 @@
 
 
 
- bool SimpleLoader::load(std::string data) {
+ bool SimpleLoader::load(std::string &data) {
     std::cout << "Loaded successfully" << std::endl;
     return true;
 }

@@ -1,34 +1,37 @@
 //
 // Created by Bohdan Zhuravel on 08/04/2023.
 //
-#include <string>
 #include "../../include/etl/structure.h"
 
 
-std::string Extractor::extract() {
-    return std::string();
+template <typename T>
+T Extractor<T>::extract() {
+    return T();
 }
 
-bool Loader::load(std::string) {
+template <typename T>
+bool Loader<T>::load(T &data) {
     return false;
 }
 
-
-std::string ETL::extract() {
+template <typename T>
+T ETL<T>::extract() {
     return extractor_ -> extract();
 }
 
-bool ETL::load(const std::string& data) {
+template <typename T>
+bool ETL<T>::load(T &data) {
     return loader_ -> load(data);
 }
 
-std::string ETL::transform(std::string data) {
-    return std::string();
+template <typename T>
+T ETL<T>::transform(T &data) {
+    return T();
 }
 
-
-void ETL::run() {
-    std::string extracted_data = extract();
-    std::string transformed_data = transform(extracted_data);
-    load(transformed_data);
+template <typename T>
+void ETL<T>::run() {
+    T data = extractor_->extract();
+    data = transform(data);
+    loader_->load(data);
 }
