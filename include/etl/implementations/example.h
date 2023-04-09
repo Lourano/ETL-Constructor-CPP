@@ -5,7 +5,9 @@
 #ifndef ETL_CONSTRUCTOR_EXAMPLE_H
 #define ETL_CONSTRUCTOR_EXAMPLE_H
 
+#include <iostream>
 #include <string>
+
 #include "../structure.h"
 
 class ExampleETL: public ETL<std::string> {

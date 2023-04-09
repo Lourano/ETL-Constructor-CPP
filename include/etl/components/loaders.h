@@ -5,7 +5,9 @@
 #ifndef ETL_CONSTRUCTOR_LOADERS_H
 #define ETL_CONSTRUCTOR_LOADERS_H
 
+#include <iostream>
 #include <string>
+
 #include "../structure.h"
 
 class SimpleLoader: public Loader<std::string> {

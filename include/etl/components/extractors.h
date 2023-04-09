@@ -5,7 +5,9 @@
 #ifndef ETL_CONSTRUCTOR_EXTRACTORS_H
 #define ETL_CONSTRUCTOR_EXTRACTORS_H
 
+#include <iostream>
 #include <string>
+
 #include "../structure.h"
 
 class SimpleExtractor: public Extractor<std::string> {
